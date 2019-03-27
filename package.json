@@ -1,0 +1,29 @@
+{
+  "name": "lodown-sleith436",
+  "version": "1.0.0",
+  "description": ";)",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "instanbul cover_mocha -- test/ -R spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sleith436/lodown.git"
+  },
+  "author": "sleith436",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sleith436/lodown/issues"
+  },
+  "homepage": "https://github.com/sleith436/lodown#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "i": "^0.3.6",
+    "istanbul": "^0.4.5",
+    "mocha": "^6.0.2",
+    "sinon": "^7.3.1"
+  }
+}
