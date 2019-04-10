@@ -322,8 +322,24 @@ return bothArrays;
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
 _.every = function(collection, func){
-    _.map(collection, func)
-}
+    if(!func){
+        var ans = true;
+        _.each(collection, function(val){
+            if(!val){
+                ans = false;
+            }
+        })
+        return ans;
+    }else{
+        var ans = true;
+        _.each(collection, function(elt, loc, col){
+            if(!func(elt, loc, col)){
+                ans = false;
+            }
+        });
+    }
+    return ans;
+};
 
 /** _.some
 * Arguments:
@@ -345,7 +361,26 @@ _.every = function(collection, func){
 *   _.some([1,3,5], function(e){return e % 2 === 0}) -> false
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
-
+_.some = function(collection, func){
+   var ans = false;
+    if(!func){
+        _.each(collection, function(val){
+            if(!val){
+                ans = false;
+            }else{
+                ans = true;
+            }
+        });
+        return ans;
+    }else{
+        _.each(collection, function(value, loc, col){
+            if(func(value, loc, col)){
+                ans = true;
+            }
+        });
+    }
+    return ans;
+};
 
 /** _.pluck
 * Arguments:
@@ -357,7 +392,17 @@ _.every = function(collection, func){
 * Examples:
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
+_.pluck = function(arr, prop){
+var ans = [];
+for(var i = 0; i < arr.length; i++){
+    if(arr[i].hasOwnProperty(prop)){
+        ans.push(arr[i][prop]);
+    }
+}
+return ans;
 
+    
+};
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
